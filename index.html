@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie 1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="index.html">
+                    <img src="https://occ.a.nflxso.net/dnmt/api/v6/iL4oJVDYZ8KLSrJ6eG2OwtghbfQ/AAAAAQ4TXm1OaapkwYRGseWYrT2HFpAFV7IX9bgV76BxLOD_049HTkgqZ6zq3enQ0gxU1b-868yGZj1I99Ak9oRykNILYsbpT_0d-be9QKbwkD8OfaEdWL-FHZBiORJ9ppzVCM1-mVn63afS.svg"
+                        alt="logo" class="logo">
+                </a>
+            </div>
+
+            <div class="col-md-6 mr-0 text-right">
+                <button type="button" class="btn btn-sm pri-btn" id="showForm">Add Movies</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row" id="movieContainer">
+            <!-- <div class="col-md-3">
+                <div class="card sec-btn movieCard">
+                    <div class="card-header p-3 pl-0 d-flex justify-content-between">
+                        <div class="col-10 m-0 p-0">
+                            <h4 class="m-0">Movie title</h4>
+                            <small class="m-0 text-light">updated at: 8386354378</small>
+                        </div>
+                        <div class="col-2 mr-0">
+                            <h4 class="m-0"><span class="badge badge-warning mr-0">5</span></h4>
+                        </div>
+                    </div>
+
+                    <div class="card-body py-0 p-0 pr-2 pl-2 m-0">
+                        <figure class="m-0 p-0">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHFXPd1YhmYcoOvPKOXxPrP5e4RwgWl7jYtVdX8-rlA&s=10"
+                                alt="Fidaa">
+
+                            <figcaption>
+                                <h4 class="m-0 p-2">Movie title</h4>
+                                <p class="m-0">Varun and Bhanu meet at a family wedding in rural Telangana. They fall in
+                                    love, but cultural clashes, ego, and personal challenges create distance between
+                                    them before fate eventually reunites them.Varun and Bhanu meet at a family wedding
+                                    in rural Telangana. They fall in love, but cultural clashes, ego, and personal
+                                    challenges create distance between them before fate eventually reunites them</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-sm btn-outline sec-btn">Edit</button>
+                        <button type="button" class="btn btn-sm btn-outline pri-btn">Remove</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="backdrop closemodel" id="backdrop"></div>
+    <div class="container m-4" class="closemodel" id="model">
+        <!-- <div class="row"> -->
+        <!-- <div class="col-12"> -->
+        <form action="" class="movieForm" id="movieForm">
+            <div class="card text-white">
+                <div class="card-header d-flex justify-content-between sec-btn">
+                    <h4 class="m-0">Add Moive</h4>
+                    <i class="fa-solid fa-xmark-square fa-2x closemodel text-dark"></i>
+                </div>
+
+                <div class="card-body text-dark">
+                    <div class="form-row">
+                        <div class="col-12">
+                            <label for="title">Movie Title<span class="text-danger">* :</span></label>
+                            <input type="text" class="form-control mb-2" id="title" placeholder="Enter Movie Name">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="poster">Poster<span class="text-danger">* :</span></label>
+                            <input type="text" class="form-control mb-2" placeholder="Enter Poster Url" id="poster">
+                        </div>
+
+                        <div class="col-2">
+                            <label for="rating">Rating<span class="text-danger">* :</span></label>
+                            <select class="form-control" id="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+
+                        <div class="col-4 offset-1">
+                            <label for="genres">Genere<span class="text-danger">* :</span></label>
+                            <select class="form-control" id="genres">
+                                <option value="Action">Action</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Sci-fi">Sci-fi</option>
+                                <option value="Animation">Animation</option>
+
+                            </select>
+                        </div>
+
+                        <div class="col-4 offset-1">
+                            <label for="releaseDate">Release Date<span class="text-danger">* :</span></label>
+                            <input type="date" class="form-control" placeholder="Enter releaseDate Url"
+                                id="releaseDate">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="description">Movie Description<span class="text-danger">* :</span></label>
+                            <textarea type="" class="form-control" rows="2" placeholder="Enter description Url"
+                                id="description"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex justify-content-between align-items-center sec-btn">
+                    <button type="submit" class="btn btn-outline pri-btn" id="addMovie">Add Movie</button>
+                    <button type="button" class="btn btn-outline pri-btn d-none" id="updateMovie">Update Movie</button>
+                    <button type="button" class="btn closemodel btn-outline pri-btn">Cancel</button>
+                </div>
+            </div>
+        </form>
+        <!-- </div> -->
+        <!-- </div> -->
+    </div>
+
+
+
+
+    <div class="spinner d-none" id="spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>

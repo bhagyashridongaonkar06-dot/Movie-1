@@ -16,7 +16,7 @@ const createdAt = document.getElementById('createdAt')
 const updatedAt = document.getElementById('updatedAt')
 const spinner = document.getElementById('spinner')
 const closemodel = document.querySelectorAll('.closemodel')
-const showForm = document.querySelector(' #showForm')
+const showForm = document.querySelector('#showForm')
 const heading = document.querySelector(' .heading')
 const movieContainer = document.getElementById('movieContainer')
 
@@ -34,17 +34,20 @@ let state = {
 
 //function form show handler
 
-function onToggleFormandModel() {
+function onModelToggle() {
+    heading.innerText = "Add Movie"
     model.classList.toggle('active')
-    backdrop.classList.toggle('active')
-    // movieForm.reset()
+    backdrop.classList.toggle('active');
+    movieForm.reset();
+    addMovie.classList.remove("d-none");
+    updateMovie.classList.add("d-none");
 
-    addMovie.classList.remove('d-none')
-    updateMovie.classList.add('d-none')
 }
 
-showForm.addEventListener('click', onToggleFormandModel)
-closemodel.forEach(e => e.addEventListener('click', onToggleFormandModel))
+
+
+showForm.addEventListener('click', onModelToggle)
+closemodel.forEach(e => e.addEventListener('click', onModelToggle))
 
 // function for snackbar
 
@@ -189,14 +192,13 @@ function onSubmit(eve) {
         poster: poster.value
     }
     // cl(newMovie)
-    onToggleFormandModel()
+   onModelToggle()
     handleSpinner(true)
 
     makeApiCall(movie_url, "POST", newMovie)
         .then(data => {
             newMovie.id = data.name
             state.movieArr.unshift(newMovie)
-            movieForm.reset()
 
             let card = document.createElement("div")
             card.id = data.name
@@ -236,7 +238,7 @@ function onSubmit(eve) {
                 </div>`
             snackbar(`New Movie ${newMovie.title} Added successfully`, 'success')
             movieContainer.prepend(card)
-            // onToggleFormandModel()
+            onModelToggle()
         })
         .catch(err => {
             snackbar(err, 'error')
@@ -252,7 +254,7 @@ function onEdit(ele) {
     cl(editId)
     let edit_url = `${base_url}/movies/${editId}.json`
 
-    onToggleFormandModel()
+   onModelToggle()
     makeApiCall(edit_url, "GET")
         .then(data => {
             cl(data)
@@ -317,7 +319,7 @@ function onUpdate() {
     }
     // cl(updateObj)
     // movieForm.reset()
-    onToggleFormandModel()
+   onModelToggle()
     makeApiCall(update_url, "PATCH", updateObj)
         .then(data => {
             // cl(data)
@@ -346,8 +348,8 @@ function onUpdate() {
                                         <figcaption>
                                             <h4 class="m-0">${updateObj.title}</h4>
                                             <small>Relase Date :</small>
-                                            <small>Relase Date : <span class="">${ele.year}</span></small>
-                                            <h6 class="m-0 genre"><span>Genres : </span>${ele.genre}</h6><br>
+                                            <small>Relase Date : <span class="">${updateObj.year}</span></small>
+                                            <h6 class="m-0 genre"><span>Genres : </span>${updateObj.genre}</h6><br>
                                             <p class="m-0">${updateObj.description}</p>
                                         </figcaption>
                                     </figure>
@@ -361,9 +363,9 @@ function onUpdate() {
                 </div>`
             movieForm.reset()
             snackbar(`New Movie ${updateObj.title} updated successfully`, 'success')
-            // onToggleFormandModel()
-            addMovie.classList.add('d-none')
-            updateMovie.classList.remove('d-none')
+            onModelToggle()
+            // addMovie.classList.add('d-none')
+            // updateMovie.classList.remove('d-none')
         })
         .catch(err => {
             snackbar(err, 'error')

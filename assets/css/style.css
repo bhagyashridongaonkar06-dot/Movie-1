@@ -24,6 +24,39 @@
     background-color: var(--sec-color);
     color: var(--color-white);
 }
+
+
+
+body::before{
+   content: '';
+   background-image:  linear-gradient(
+      360deg,
+      rgba(0, 0, 0, 0.85) 3%,
+      rgba(0, 0, 0, 0.8465) 11.08%,
+      rgba(0, 0, 0, 0.8361) 19.17%,
+      rgba(0, 0, 0, 0.8187) 27.25%,
+      rgba(0, 0, 0, 0.7944) 35.33%,
+      rgba(0, 0, 0, 0.7632) 43.42%,
+      rgba(0, 0, 0, 0.725) 51.5%,
+      rgba(0, 0, 0, 0.6868) 59.58%,
+      rgba(0, 0, 0, 0.6556) 67.67%,
+      rgba(0, 0, 0, 0.6313) 75.75%,
+      rgba(0, 0, 0, 0.6139) 83.83%,
+      rgba(0, 0, 0, 0.6035) 91.92%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),url('../images/backimg.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top:0;
+    position: fixed;
+    /* z-index: -1; */
+} 
+
 /* ...............................common css.................. */
 
 
@@ -57,9 +90,14 @@ figcaption{
     transition: all .7s ease-in-out;
     overflow: auto;
 }
+.movieCard :hover{
+     /* background-color: black;  */
+     /* opacity: 0.7;  */
+}
 
 .movieCard:hover figcaption, .movieCard:active figcaption, .movieCard:focus figcaption{
     transform: translateY(0);
+    /* background-color: black; */
 }
 
 .movieCard .card-header h4{
@@ -70,35 +108,6 @@ figcaption{
 
 
 
-body::before{
-   content: '';
-   background-image:  linear-gradient(
-      360deg,
-      rgba(0, 0, 0, 0.85) 3%,
-      rgba(0, 0, 0, 0.8465) 11.08%,
-      rgba(0, 0, 0, 0.8361) 19.17%,
-      rgba(0, 0, 0, 0.8187) 27.25%,
-      rgba(0, 0, 0, 0.7944) 35.33%,
-      rgba(0, 0, 0, 0.7632) 43.42%,
-      rgba(0, 0, 0, 0.725) 51.5%,
-      rgba(0, 0, 0, 0.6868) 59.58%,
-      rgba(0, 0, 0, 0.6556) 67.67%,
-      rgba(0, 0, 0, 0.6313) 75.75%,
-      rgba(0, 0, 0, 0.6139) 83.83%,
-      rgba(0, 0, 0, 0.6035) 91.92%,
-      rgba(0, 0, 0, 0.6) 100%
-    ),url('../images/backimg.jpeg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top:0;
-    position: fixed;
-    /* z-index: -1; */
-} 
 
 
 #model{
@@ -143,6 +152,26 @@ body::before{
         transform: translateY(0%);
     }
 }
+
+.spinner{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: .8;
+    position : fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.genre{
+    color: teal;
+    text-decoration: bold;
+}
+
+
 
 
 

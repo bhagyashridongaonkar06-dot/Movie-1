@@ -74,15 +74,15 @@
         <form action="" class="movieForm" id="movieForm">
             <div class="card text-white">
                 <div class="card-header d-flex justify-content-between sec-btn">
-                    <h4 class="m-0">Add Moive</h4>
-                    <i class="fa-solid fa-xmark-square fa-2x closemodel text-dark"></i>
+                    <h4 class="m-0 heading">Add Moive</h4>
+                    <i class="fa-solid fa-xmark-square fa-2x closemodel text-light"></i>
                 </div>
 
                 <div class="card-body text-dark">
                     <div class="form-row">
                         <div class="col-12">
                             <label for="title">Movie Title<span class="text-danger">* :</span></label>
-                            <input type="text" class="form-control mb-2" id="title" placeholder="Enter Movie Name">
+                            <input type="text" required class="form-control mb-2" id="title" placeholder="Enter Movie Name">
                         </div>
 
                         <div class="col-12">
@@ -108,7 +108,7 @@
 
                         <div class="col-4 offset-1">
                             <label for="genres">Genere<span class="text-danger">* :</span></label>
-                            <select class="form-control" id="genres">
+                            <select class="form-control text-black" id="genres">
                                 <option value="Action">Action</option>
                                 <option value="Adventure">Adventure</option>
                                 <option value="Comedy">Comedy</option>
@@ -126,6 +126,18 @@
                             <input type="date" class="form-control" placeholder="Enter releaseDate Url"
                                 id="releaseDate">
                         </div>
+
+                        <!-- <div class="col-4 offset-1">
+                            <label for="createdAt">Created<span class="text-danger">* :</span></label>
+                            <input type="date" class="form-control" placeholder="Enter createdAt Url"
+                                id="createdAt">
+                        </div>
+
+                        <div class="col-4 offset-1">
+                            <label for="updatedAt">Release Date<span class="text-danger">* :</span></label>
+                            <input type="date" class="form-control" placeholder="Enter updatedAt Url"
+                                id="updatedAt">
+                        </div> -->
 
                         <div class="col-12">
                             <label for="description">Movie Description<span class="text-danger">* :</span></label>

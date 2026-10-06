@@ -85,7 +85,7 @@ figcaption{
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 0.8;
+    opacity: .93;
     transform: translateY(115%);
     transition: all .7s ease-in-out;
     overflow: auto;

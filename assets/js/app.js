@@ -144,7 +144,7 @@ function onReadMovies(arr) {
                     <div class="card-header p-3 pl-0 d-flex justify-content-between">
                         <div class="col-10 m-0 p-0">
                             <h4 class="m-0">${ele.title}</h4>
-                            <small class="m-0 text-light">Created at: ${ele.createdAt}</small>
+                            <small class="m-0 text-light">Created at: ${new Date(ele.createdAt).toLocaleString("en-IN")}</small>
                             </div>
                             <div class="col-2 mr-0">
                             <h5 class="m-0 mr-3"><span class="badge ${setRating(ele.rating)}">${ele.rating}</span></h5>
@@ -157,11 +157,11 @@ function onReadMovies(arr) {
                             alt="${ele.title}">
                             
                             <figcaption>
-                            <h4 class="m-0">${ele.title}</h4>
+                            <h4 class="m-0 p-2">${ele.title}</h4>
 
-                            <small>Relase Date : <span class="">${ele.year}</span></small>
-                            <h6 class="m-0 genre"><span>Genres : </span>${ele.genre}</h6><br>
-                            <p class="m-0">${ele.description}</p>
+                            <small class="p-2">Relase Date : <span class="">${ele.year}</span></small>
+                            <h4 class="m-0 p-2 genre"><span>Genre : </span>${ele.genre}</h4><br>
+                            <p class="m-0 p-2">${ele.description}</p>
                             </figcaption>
                             </figure>
                             ${ele.updatedAt ? `<small class="m-0 text-light">updated at: ${ele.updatedAt}</small>` : ""}
@@ -192,7 +192,7 @@ function onSubmit(eve) {
         poster: poster.value
     }
     // cl(newMovie)
-   onModelToggle()
+//    onModelToggle()
     handleSpinner(true)
 
     makeApiCall(movie_url, "POST", newMovie)
@@ -207,7 +207,7 @@ function onSubmit(eve) {
                     <div class="card-header p-3 pl-0 d-flex justify-content-between">
                         <div class="col-10 m-0 p-0">
                             <h4 class="m-0">${newMovie.title}</h4>
-                            <small class="m-0 text-light">Created at: ${newMovie.createdAt}</small>
+                            <small class="m-0 text-light">Created at: ${new Date(newMovie.createdAt).toLocaleString("en-IN")}</small>
                             </div>
                             <div class="col-2 mr-0">
                             <h5 class="m-0 mr-3"><span class="badge ${setRating(newMovie.rating)}">${newMovie.rating}</span></h5>
@@ -220,12 +220,12 @@ function onSubmit(eve) {
                             alt="${newMovie.title}">
                             
                             <figcaption>
-                             <h4 class="m-0">${newMovie.title}</h4>
+                             <h4 class="m-0 p-2">${newMovie.title}</h4>
 
-                            <small>Relase Date :</small>
-                            <h6 class="m-0">${newMovie.year}</h6>
+                            <small class="p-2">Relase Date :</small>
+                            <h6 class="m-0 p-2">${newMovie.year}</h6>
                             <small>Relase Date : <span class="">${newMovie.year}</span></small>
-                            <h6 class="m-0 genre"><span>Genres : </span>${newMovie.genre}</h6><br>
+                            <h4 class="m-0 p-2 genre"><span>Genre : </span>${newMovie.genre}</h4><br>
                             </figcaption>
                             </figure>
                             ${newMovie.updatedAt ? `<small class="m-0 text-light d-none">updated at: ${newMovie.updatedAt}</small>` : ""}
@@ -319,7 +319,7 @@ function onUpdate() {
     }
     // cl(updateObj)
     // movieForm.reset()
-   onModelToggle()
+//    onModelToggle()
     makeApiCall(update_url, "PATCH", updateObj)
         .then(data => {
             // cl(data)
@@ -329,11 +329,11 @@ function onUpdate() {
 
             let col = document.getElementById(updateId)
             col.id = data.id
-            col.innerHTML = `<div class="card h-100  movieCard">
+            col.innerHTML = `<div class="card h-100 sec-btn movieCard">
                                 <div class="card-header p-3 pl-0 d-flex justify-content-between">
                                     <div class="col-10 m-0 p-0">
                                          <h4 class="m-0">${updateObj.title}</h4>
-                                        <small class="m-0 text-light">Created at: ${updateObj.createdAt}</small>
+                                        <small class="m-0 text-light">Created at: ${new Date(updateObj.createdAt).toLocaleString("en-IN")}</small>
                                     </div>
                                     <div class="col-2 mr-0">
                                         <h5 class="m-0 mr-3"><span class="badge ${setRating(updateObj.rating)}">${updateObj.rating}</span></h5>
@@ -346,14 +346,13 @@ function onUpdate() {
                                             alt="${updateObj.title}">
                             
                                         <figcaption>
-                                            <h4 class="m-0">${updateObj.title}</h4>
-                                            <small>Relase Date :</small>
-                                            <small>Relase Date : <span class="">${updateObj.year}</span></small>
-                                            <h6 class="m-0 genre"><span>Genres : </span>${updateObj.genre}</h6><br>
-                                            <p class="m-0">${updateObj.description}</p>
+                                            <h4 class="m-0 p-2">${updateObj.title}</h4>
+                                            <small class="p-2">Relase Date : <span class="">${updateObj.year}</span></small>
+                                            <h4 class="m-0 p-2 genre"><span>Genre : </span>${updateObj.genre}</h4><br>
+                                            <p class="m-0 p-2">${updateObj.description}</p>
                                         </figcaption>
                                     </figure>
-                                    ${updateObj.updatedAt ? `<small class="m-0 text-light">updated at: ${updateObj.updatedAt}</small>` : ""}
+                                    ${updateObj.updatedAt ? `<small class="m-0 text-light">updated at: ${new Date(updateObj.updatedAt).toLocaleString("en-IN")}</small>` : ""}
                                 </div>
 
                     <div class="card-footer d-flex justify-content-between align-items-center">
